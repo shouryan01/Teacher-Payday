@@ -9,6 +9,9 @@ import SignUp from './components/SignUp';
 import Dashboard from './components/Dashboard';
 import NotFoundPage from './components/NotFoundPage';
 
+// Ant css
+import 'antd/dist/antd.min.css';
+
 function App() {
   return (
     <div className='App'>
