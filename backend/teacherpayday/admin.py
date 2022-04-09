@@ -1,7 +1,11 @@
 from django.contrib import admin
-from .models import InvestmentUser
+from .models import User, Payment
 
-class InvestmentUserAdmin(admin.ModelAdmin):
-  list = ('first_name', 'last_name', 'email', 'created_at', 'password')
+class UserAdmin(admin.ModelAdmin):
+  list = ('first_name', 'last_name', 'email', 'created_at', 'password', 'eth_wallet_address', 'type', 'private_key')
 
-admin.site.register(InvestmentUser, InvestmentUserAdmin)
+class PaymentAdmin(admin.ModelAdmin):
+  list = ('sending_address', 'recieving_address', 'sending_key', 'recieving_key', 'amount')
+
+admin.site.register(User, UserAdmin)
+admin.site.register(Payment, PaymentAdmin)
