@@ -2,7 +2,7 @@
 
 This is a [Blitz.js](https://github.com/blitz-js/blitz) app.
 
-# **Teacher-Payda**
+# **Teacher-Payday**
 
 ## Getting Started
 
