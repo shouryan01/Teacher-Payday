@@ -38,31 +38,32 @@ def make_payment(request):
     sending_key = body['sending_key']
     recieving_key = body['recieving_key']
     amount = body['amount']
+    url = body['url']
 
 
-    w3 = Web3(Web3.HTTPProvider('https://kovan.infura.io/v3/e65c23a9d95d4d78bd30120b9b0eab1c'))
+    w3 = Web3(Web3.HTTPProvider(url))
 
-    public_adress = '0x5f835e18F2295e4B6A9b9A1Ba5Be47685f4C012C'
+    # sending_adress = '0x8183085b40d038814E847C1b93F7eC8C3dd63ab6'
 
-    reciever_adress = '0x8183085b40d038814E847C1b93F7eC8C3dd63ab6'
+    # reciever_adress = '0x5f835e18F2295e4B6A9b9A1Ba5Be47685f4C012C'
 
-    private_key = os.environ['METAMASK_KEY']
+    # private_key = 'c5c3a266024ff74951fb230052d174684a2aeefd40f0f5ce058667538658cd8a' # sending key
 
-    address1 = Web3.toChecksumAddress(public_adress)
+    address1 = Web3.toChecksumAddress(sending_address)
 
-    address2 = Web3.toChecksumAddress(reciever_adress)
+    address2 = Web3.toChecksumAddress(recieving_address)
 
-    nonce = w3.eth.getTransactionCount(address2)
+    nonce = w3.eth.getTransactionCount(address1)
 
     tx = {
-    'nonce': nonce,
-    'to': address1,
-    'value': w3.toWei(0.07, 'ether'), # How much to send
-    'gas': 21000,
-    'gasPrice': w3.toWei(40, 'gwei')
+        'nonce': nonce,
+        'to': address2,
+        'value': w3.toWei(float(amount), 'ether'), # How much to send (amount var)
+        'gas': 21000,
+        'gasPrice': w3.toWei(40, 'gwei')
     }
 
-    signed_tx = w3.eth.account.signTransaction(tx, 'c5c3a266024ff74951fb230052d174684a2aeefd40f0f5ce058667538658cd8a')
+    signed_tx = w3.eth.account.signTransaction(tx, sending_key)
 
     tx_hash = w3.eth.sendRawTransaction(signed_tx.rawTransaction)
 
