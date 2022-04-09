@@ -20,10 +20,11 @@ from teacherpayday import views
 from django.views.decorators.csrf import csrf_exempt
 
 router = routers.DefaultRouter()                   
-router.register(r'investmentusers', views.InvestmentUserView, 'investmentusers')  
+router.register(r'users', views.UserView, 'users')  
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    path('create/investmentuser', csrf_exempt(views.investment_user_post))
+    path('create/user', csrf_exempt(views.create_user)),
+    path('pay', csrf_exempt(views.make_payment))
 ]
