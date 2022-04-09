@@ -23,7 +23,7 @@ function SignUp() {
               overflow: "hidden"
             }}
             cover={<img alt="student" src="https://i.ibb.co/0hR6DZL/student.png" />}
-            onClick={() => navigate("/login")}
+            onClick={() => navigate("/studentsignup")}
           >
             <Meta title="Student" />
           </Card>

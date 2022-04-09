@@ -4,7 +4,7 @@ from .models import User, Payment
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'email', 'created_at', 'password', 'eth_wallet_address', 'type', 'private_key')
+        fields = ('description', 'first_name', 'last_name', 'email', 'created_at', 'password', 'eth_wallet_address', 'type', 'private_key')
 
 class PaymentSerializer(serializers.ModelSerializer):
     class Meta:

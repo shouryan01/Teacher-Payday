@@ -19,9 +19,20 @@ def create_user(request):
 
     first_name = request_body['first_name']
     last_name = request_body['last_name']
+    email = request_body['email']
+    password = request_body['password']
+    type = request_body['type']
 
+    private_key = description = eth_wallet_address = None
 
-    user = User(first_name=first_name)
+    if 'private_key' in request_body.keys() and len(request_body['private_key']) > 0:
+        private_key = request_body['private_key']
+    if 'description' in request_body.keys() and len(request_body['description']) > 0:
+        description = request_body['description']
+    if 'eth_wallet_address' in request_body.keys() and len(request_body['eth_wallet_address']) > 0:
+        eth_wallet_address = request_body['eth_wallet_address']
+
+    user = User(first_name=first_name, last_name=last_name, email=email, password=password, type=type, private_key=private_key, eth_wallet_address=eth_wallet_address, description=description)
     
     user.save()
 

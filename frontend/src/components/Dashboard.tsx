@@ -9,6 +9,7 @@ import {
   DashboardOutlined,
   HistoryOutlined,
   ArrowRightOutlined,
+  RadarChartOutlined
 } from '@ant-design/icons';
 const { Content, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -27,19 +28,17 @@ function Dashboard() {
         onCollapse={(collapsed) => setCollapsed(collapsed)}
       >
         <Menu theme="dark" defaultSelectedKeys={['graphs']} mode="inline">
-          <Menu.Item key="graphs" icon={<PieChartOutlined />}>
-            <Link to="graphs">Dashboard</Link>
+          <Menu.Item key="stocks" icon={<PieChartOutlined />}>
+            <Link to="stocks">Dashboard</Link>
           </Menu.Item>
-          <SubMenu key="sub1" icon={<DesktopOutlined />} title="Preferences">
-            <Menu.Item key="2" icon={<DashboardOutlined />}>
-              Something
-            </Menu.Item>
-          </SubMenu>
-          <Menu.Item key="history" icon={<HistoryOutlined />}>
-            <Link to="history">History</Link>
+          <Menu.Item key="Trade" icon={<DashboardOutlined />}>
+            <Link to="graphs">Trade</Link>
+          </Menu.Item>
+          <Menu.Item key="profiles" icon={<RadarChartOutlined />}>
+            <Link to="graphs">Profiles</Link>
           </Menu.Item>
           <Menu.Item key="6" icon={<ArrowRightOutlined />} onClick={logOutUser}>
-            Log Out
+          <Link to="/welcome">Log Out</Link>
           </Menu.Item>
         </Menu>
       </Sider>
