@@ -29,7 +29,6 @@ function SignUp() {
 
   return (
     <div className="App">
-      <input type="text" onChange={(e) => updateFirstName(e.target.value)} />
       <button onClick={handleClick}>Sign Up</button>
     </div>
   );
