@@ -39,7 +39,6 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { Footer } from "./components/footer";
 import { Loader } from "./components/loader";
 import { MobileNavBar } from "./components/mobile-nav-bar";
 import { NavBar } from "./components/nav-bar";
@@ -51,7 +50,7 @@ import { Profile } from "./pages/profile";
 import { ProtectedPage } from "./pages/protected";
 import { PublicPage } from "./pages/public";
 
-export const App: React.FC = () => {
+export function App () {
   const { isLoading } = useAuth0();
 
   if (isLoading) {
@@ -85,7 +84,6 @@ export const App: React.FC = () => {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
-      <Footer />
     </div>
   );
 };
