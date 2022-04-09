@@ -9,7 +9,6 @@ import LogOut from './components/LogOut';
 import SignUp from './components/SignUp';
 import Dashboard from './components/Dashboard';
 import NotFoundPage from './components/NotFoundPage';
-import GraphContainer from './components/Graphs/GraphContainer';
 
 // Ant css
 import 'antd/dist/antd.min.css';
@@ -19,7 +18,6 @@ function App() {
     <div className='App'>
       <Routes>
         <Route path="/" element={<Dashboard />} >
-          <Route path="graphs" element={<GraphContainer />} />
         </Route>
         <Route path="/welcome" element={<LandingPage />} />
         <Route path="/login" element={<LogIn />} />
