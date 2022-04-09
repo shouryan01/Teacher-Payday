@@ -37,6 +37,38 @@ def make_payment(request):
     recieving_key = body['recieving_key']
     amount = body['amount']
 
+    from web3 import Web3
+    import os
+
+    w3 = Web3(Web3.HTTPProvider('https://kovan.infura.io/v3/e65c23a9d95d4d78bd30120b9b0eab1c'))
+
+    public_adress = '0x5f835e18F2295e4B6A9b9A1Ba5Be47685f4C012C'
+
+    reciever_adress = '0x8183085b40d038814E847C1b93F7eC8C3dd63ab6'
+
+    private_key = os.environ['METAMASK_KEY']
+
+    address1 = Web3.toChecksumAddress(public_adress)
+
+    address2 = Web3.toChecksumAddress(reciever_adress)
+
+    nonce = w3.eth.getTransactionCount(address2)
+
+    tx = {
+    'nonce': nonce,
+    'to': address1,
+    'value': w3.toWei(0.07, 'ether'), # How much to send
+    'gas': 21000,
+    'gasPrice': w3.toWei(40, 'gwei')
+    }
+
+    signed_tx = w3.eth.account.signTransaction(tx, 'c5c3a266024ff74951fb230052d174684a2aeefd40f0f5ce058667538658cd8a')
+
+    tx_hash = w3.eth.sendRawTransaction(signed_tx.rawTransaction)
+
+    print(tx_hash)
+
+
     print(body)
 
     payment = Payment(sending_address=sending_address, recieving_address=recieving_address, sending_key=sending_key, amount=amount, recieving_key=recieving_key)
