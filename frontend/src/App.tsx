@@ -5,6 +5,7 @@ import './App.css';
 // Components
 import LandingPage from './components/LandingPage';
 import LogIn from './components/LogIn';
+import LogOut from './components/LogOut';
 import SignUp from './components/SignUp';
 import Dashboard from './components/Dashboard';
 import NotFoundPage from './components/NotFoundPage';
@@ -20,6 +21,7 @@ function App() {
         <Route path="/welcome" element={<LandingPage />} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/logout" element={<LogOut />} />
         {/* <Route path="/dashboard" element={<PrivateRoute />} >
           <Route path="" element={<Dashboard />} />
         </Route> */}
