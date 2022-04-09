@@ -2,12 +2,11 @@ import React from 'react';
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 
-function StudentSignUp() {
+function InvestorSignUp() {
     const [firstName, updateFirstName] = useState('');
     const [lastName, updateLastName] = useState('');
     const [email, updateEmail] = useState('');
     const [password, updatePassword] = useState('');
-    const [description, updateDescription] = useState('');
     const [privKey, updatePrivKey] = useState('');
     const [address, updateAddress] = useState('');
     const [signedUp, updateStatus] = useState(false);
@@ -20,7 +19,7 @@ function StudentSignUp() {
         );
     };
 
-    function createStudent(){
+    function createInvestor(){
         updateFirstName(firstName.replace(/\s+/g, ''));
         updateLastName(lastName.replace(/\s+/g, ''));
         updateEmail(email.replace(/\s+/g, ''));
@@ -55,9 +54,8 @@ function StudentSignUp() {
                     password: password,
                     email: email,
                     private_key: privKey,
-                    description: description,
                     eth_wallet_address: address,  
-                    type: 'student'
+                    type: 'investor'
                 }) 
             }
             let res = await fetch('http://localhost:8000/create/user', json);
@@ -80,10 +78,9 @@ function StudentSignUp() {
                 <input type='text' placeholder='Last Name' onChange={(e) => updateLastName(e.target.value)}></input>
                 <input type='email' placeholder='Email' onChange={(e) => updateEmail(e.target.value)}></input>
                 <input type='password' placeholder='Password' onChange={(e) => updatePassword(e.target.value)}></input>
-                <textarea onChange={(e) => updateDescription(e.target.value)}></textarea>
                 <input type='password' placeholder='Private Key' onChange={(e) => updatePrivKey(e.target.value)}></input>
                 <input type='password' placeholder='Wallet Address' onChange={(e) => updateAddress(e.target.value)}></input>
-                <button onClick={createStudent}>Sign Up!</button>
+                <button onClick={createInvestor}>Sign Up!</button>
             </div> : (
             
             <div>
@@ -91,9 +88,8 @@ function StudentSignUp() {
                 <Link to='/login'>Sign In Now</Link>
             </div>
             )}
-            
         </div>
     );
 }
 
-export default StudentSignUp;
+export default InvestorSignUp;
