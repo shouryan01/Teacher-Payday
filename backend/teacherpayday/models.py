@@ -9,6 +9,7 @@ class User(models.Model):
     eth_wallet_address = models.CharField(max_length=500, null=True)
     type = models.CharField(max_length=200) # Student or Investor
     private_key = models.CharField(max_length=1000, null=True)
+    description = models.TextField(max_length=1000, null=True)
 
     def __str__(self):
         return f'{self.first_name} {self.last_name}. {self.type} user'
