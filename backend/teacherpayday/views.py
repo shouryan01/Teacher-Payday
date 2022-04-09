@@ -4,6 +4,8 @@ from rest_framework import viewsets
 from rest_framework.decorators import api_view
 from django.http import JsonResponse
 from .models import User, Payment
+from web3 import Web3
+import os
 
 class UserView(viewsets.ModelViewSet):  
     serializer_class = UserSerializer   
@@ -37,8 +39,6 @@ def make_payment(request):
     recieving_key = body['recieving_key']
     amount = body['amount']
 
-    from web3 import Web3
-    import os
 
     w3 = Web3(Web3.HTTPProvider('https://kovan.infura.io/v3/e65c23a9d95d4d78bd30120b9b0eab1c'))
 
