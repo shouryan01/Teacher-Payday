@@ -16,12 +16,13 @@ function App() {
   return (
     <div className='App'>
       <Routes>
-        <Route path="/" element={<LandingPage />} />
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/welcome" element={<LandingPage />} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/dashboard" element={<PrivateRoute />} >
+        {/* <Route path="/dashboard" element={<PrivateRoute />} >
           <Route path="" element={<Dashboard />} />
-        </Route>
+        </Route> */}
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>
