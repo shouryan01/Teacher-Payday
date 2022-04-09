@@ -6,7 +6,7 @@ function Navbar(){
 
     return (
         <nav className='navbar'>
-            <h2>Teacher PayDayTe</h2>
+            <h2>Navbar</h2>
             
         </nav>
     );
