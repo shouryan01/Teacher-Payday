@@ -18,6 +18,7 @@ function Dashboard() {
   const [collapsed, setCollapsed] = useState(false);
 
   const logOutUser = () => {
+    localStorage.clear();
   };
 
   return (
@@ -32,13 +33,14 @@ function Dashboard() {
             <Link to="stocks">Dashboard</Link>
           </Menu.Item>
           <Menu.Item key="Trade" icon={<DashboardOutlined />}>
-            <Link to="graphs">Trade</Link>
+            <Link to="trade">Trade</Link>
           </Menu.Item>
-          <Menu.Item key="profiles" icon={<RadarChartOutlined />}>
+          {JSON.parse(JSON.stringify(localStorage.getItem('type') as string)) == 'investor' ? <Menu.Item key="profiles" icon={<RadarChartOutlined />}>
             <Link to="graphs">Profiles</Link>
-          </Menu.Item>
+          </Menu.Item> : <div></div>}
+          
           <Menu.Item key="6" icon={<ArrowRightOutlined />} onClick={logOutUser}>
-          <Link to="/welcome">Log Out</Link>
+          <Link onClick={logOutUser} to="/welcome">Log Out</Link>
           </Menu.Item>
         </Menu>
       </Sider>

@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import ReactHighcharts from 'react-highcharts/ReactHighstock.src'
 import priceData from './btcdata.json'
 import moment from 'moment'
+import { Typography } from 'antd';
+const { Title } = Typography;
+
 
 function StocksChart() {
     const options = {style: 'currency', currency: 'USD'};
@@ -98,6 +101,7 @@ function StocksChart() {
   
   return (
     <div style={{maxWidth: '82vw'}}>
+        <Title>Hello, welcome {JSON.parse(localStorage.getItem('first_name'))}!</Title>
         <ReactHighcharts config = {configPrice}></ReactHighcharts>
     </div>
   );

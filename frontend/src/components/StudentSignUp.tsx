@@ -41,6 +41,10 @@ function StudentSignUp() {
             alert('Password must not have whitespace, must be longer than 0 characters, and must be less than 20.');
             return;
         }
+        else if(privKey.length == 0 || address.length == 0){
+            alert('Private key and address must be filled in.')
+            return;
+        }
 
         async function createUser(){
             let json = {
@@ -59,10 +63,10 @@ function StudentSignUp() {
                     eth_wallet_address: address,  
                     type: 'student'
                 }) 
-            }
+            };
             let res = await fetch('http://localhost:8000/create/user', json);
             let resJson = await res.json();
-            console.log(resJson);
+
             if(resJson.message == 'success!'){
                 updateStatus(true);
             }
