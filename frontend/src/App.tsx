@@ -3,7 +3,7 @@ import { Routes, Route, Outlet, Navigate } from 'react-router-dom';
 import './App.css';
 
 // Components
-import LandingPage from './components/LandingPage';
+import LandingPage from './components/Landing/LandingPage';
 import LogIn from './components/LogIn';
 import LogOut from './components/LogOut';
 import SignUp from './components/SignUp';
@@ -13,6 +13,7 @@ import StudentProfiles from './components/Graphs/StudentProfiles'
 import StudentSignUp from './components/StudentSignUp'
 import InvestorSignUp from './components/InvestorSignup'
 import StocksChart from './components/Graphs/Stocks';
+import StudentInvestmentProfiles from './components/StudentInvestmentProfiles';
 
 
 // Ant css
@@ -25,9 +26,11 @@ function App() {
         <Route path="/" element={<Dashboard />} >
           <Route path="stocks" element={<StocksChart />} />
           <Route path="graphs" element={<StudentProfiles />} />
+          <Route path="trade" element={<StudentInvestmentProfiles />} />
           {/* <Route path="stocks" element={<Stocks />} /> */}
         </Route>
         <Route path="/welcome" element={<LandingPage />} />
+        
         <Route path="/login" element={<LogIn />} />
         <Route path="/studentsignup" element={<StudentSignUp />} />
         <Route path="/investorsignup" element={<InvestorSignUp />} />
