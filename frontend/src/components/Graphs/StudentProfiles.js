@@ -56,18 +56,18 @@ export default function StudentProfiles() {
         <div style={{justifyContent: 'center', alignItems: 'center'}}>
           <Row gutter={[16, 8]}>
               <Col span={12}> 
-                {makeChart(dataMaria, "Maria Wirth")}
+                {makeChart(dataMaria, "Ray Flanagan")}
               </Col>
               <Col span={12}> 
-                {makeChart(dataSree, "Sree Ungur")}
+                {makeChart(dataSree, "Shouryan Nikam")}
               </Col>
             </Row>
             <Row gutter={[16, 16]}>
             <Col span={12}> 
-              {makeChart(dataArya, "Arya Tumicelli")}
+              {makeChart(dataArya, "Oprah Winfrey")}
             </Col>
             <Col span={12}> 
-              {makeChart(dataGabriel, "Gabriel Aubert")}
+              {makeChart(dataGabriel, "Larry Ellison")}
             </Col>
           </Row>
         </div>

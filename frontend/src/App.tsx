@@ -27,7 +27,6 @@ function App() {
           <Route path="stocks" element={<StocksChart />} />
           <Route path="graphs" element={<StudentProfiles />} />
           <Route path="trade" element={<StudentInvestmentProfiles />} />
-          {/* <Route path="stocks" element={<Stocks />} /> */}
         </Route>
         <Route path="/welcome" element={<LandingPage />} />
         

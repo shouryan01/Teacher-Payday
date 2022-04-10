@@ -8,8 +8,8 @@ function SignUp() {
   const navigate = useNavigate();
 
   return (
-    <div style={{justifyContent: 'center', height: '100vh'}}>
-      <Title>Sign Up As:</Title>
+    <div style={{alignItems: 'center', height: '100vh'}}>
+      <Title style={{marginTop: 50}}>Sign Up As:</Title>
       <div className="site-card-wrapper">
         <Row gutter={16} justify='center'>
           <Col span={8}>

@@ -60,7 +60,7 @@ function Student(props: any){
         <div style={{textAlign: "center"}}>
             
             {!isPaying ? (
-            <div style={{marginBottom: 50}}>
+            <div style={{marginBottom: 50, textAlign: "center"}}>
                 <Card
                     hoverable
                     style={{
