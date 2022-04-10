@@ -26,5 +26,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('create/user', csrf_exempt(views.create_user)),
-    path('pay', csrf_exempt(views.make_payment))
+    path('pay', csrf_exempt(views.make_payment)),
+    path('verify', csrf_exempt(views.user_exists))
 ]

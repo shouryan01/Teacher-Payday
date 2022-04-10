@@ -89,12 +89,21 @@ def make_payment(request):
 
     return JsonResponse({'message': 'success!'})
 
-# @api_view(['post'])
-# def get_user(request):
-#     body = request.data
+@api_view(['post'])
+def user_exists(request):
+    body = request.data
 
-#     # make eth payments
+    exists = False
 
-#     print(body)
+    email = body['email']
+    password = body['password']
 
-#     return JsonResponse({'message': 'success!'})
+    obj = User.objects.filter(email=email)
+
+    type = None
+
+    if obj.exists() and obj.first().password == password:
+        exists = True
+        type = obj.first().type
+
+    return JsonResponse({'exists': exists, 'type': type})
