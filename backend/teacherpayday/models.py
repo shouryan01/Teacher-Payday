@@ -7,7 +7,7 @@ class User(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     password = models.CharField(max_length=30) # Encryption?
     eth_wallet_address = models.CharField(max_length=500, null=True)
-    type = models.CharField(max_length=200) # Student or Investor
+    type = models.CharField(max_length=200) # student or investor
     private_key = models.CharField(max_length=1000, null=True)
     description = models.TextField(max_length=1000, null=True)
 

@@ -1,36 +1,51 @@
 import React from 'react';
-import { useEffect, useState } from 'react'
-
+import { Card, Col, Row, Typography } from 'antd';
+import { useNavigate } from 'react-router-dom';
+const { Meta } = Card;
+const { Title } = Typography;
 
 function SignUp() {
-  const [firstName, updateFirstName] = useState('');
-//   useEffect(() => {
-//     async function get(){
-//       let res = await fetch('http://localhost:8000/api/investmentusers/');
-//       let json = await res.json();
-//       console.log(json)
-//     }
-//     get()
-//   }, []);
-
-  function handleClick(){
-    // async function post(){
-    //   const requestOptions = {
-    //     method: 'POST',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     body: JSON.stringify({ firstName: firstName })
-    //   };
-    //   let res = await fetch('http://localhost:8000/create/investmentuser', requestOptions);
-    //   let json = await res.json();
-    //   console.log(json);
-    // }
-    // post();
-  }
+  const navigate = useNavigate();
 
   return (
-    <div className="App">
-      <input type="text" onChange={(e) => updateFirstName(e.target.value)} />
-      <button onClick={handleClick}>Sign Up</button>
+    <div style={{alignItems: 'center', height: '100vh'}}>
+      <Title style={{marginTop: 50}}>Sign Up As:</Title>
+      <div className="site-card-wrapper">
+        <Row gutter={16} justify='center'>
+          <Col span={8}>
+          <Card
+            hoverable
+            style={{
+              width: 300,
+              height: 400,
+              margin: "50px",
+              borderRadius: "20px",
+              overflow: "hidden"
+            }}
+            cover={<img alt="student" src="https://i.ibb.co/0hR6DZL/student.png" />}
+            onClick={() => navigate("/studentsignup")}
+          >
+            <Meta title="Student" />
+          </Card>
+          </Col>
+          <Col span={8}>
+          <Card
+            hoverable
+            style={{
+              width: 300,
+              height: 400,
+              margin: "50px",
+              borderRadius: "20px",
+              overflow: "hidden"
+            }}
+            cover={<img alt="investor" src="https://i.ibb.co/txqHQhQ/investor.png" />}
+            onClick={() => navigate("/investorsignup")}
+          >
+            <Meta title="Investor" />
+          </Card>
+          </Col>
+        </Row>
+      </div>
     </div>
   );
 }
