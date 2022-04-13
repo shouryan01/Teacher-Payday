@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import Student from './Student'
 function StudentInvestmentProfiles(){
     const [students, updateStudents] = useState([]);
+    
     useEffect(() => {
         async function getStudents(){
             let res = await fetch('http://localhost:8000/api');

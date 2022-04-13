@@ -42,7 +42,9 @@ export const MainContent = styled.main`
     font-size: 2rem;
     grid-area: main;
     font-weight: 500;
-    align-self: start;
+    align-self: center;
+    background: rgba(76, 175, 80, 0.4);
+    border-radius: 25px;
     padding-bottom: 2rem;
   }
 

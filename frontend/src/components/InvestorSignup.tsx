@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import { Space, Card, Button, Input } from 'antd';
 
 function InvestorSignUp() {
     const [firstName, updateFirstName] = useState('');
@@ -74,13 +75,38 @@ function InvestorSignUp() {
     return (
         <div className="App">
             {!signedUp ? <div>
-                <input type='text' placeholder='First Name' onChange={(e) => updateFirstName(e.target.value)}></input>
+                <Space align="center">
+                    <Card
+                        hoverable
+                        style={{
+                        width: 400,
+                        height: 550,
+                        margin: "50px",
+                        borderRadius: "20px",
+                        overflow: "hidden"
+                        }}
+                    >   
+                        <h1>Investor Sign Up</h1>
+                        <Input type='text' placeholder='First Name' onChange={(e) => updateFirstName(e.target.value)} style={{margin:"7px"}}></Input>
+                        <Input type='text' placeholder='Last Name' onChange={(e) => updateLastName(e.target.value)} style={{margin:"7px"}}></Input>
+                        <Input type='email' placeholder='Email' onChange={(e) => updateEmail(e.target.value)} style={{margin:"7px"}}></Input>
+                        <Input type='password' placeholder='Password' onChange={(e) => updatePassword(e.target.value)} style={{margin:"7px"}}></Input>
+
+                        <Input type='password' placeholder='Private Key' onChange={(e) => updatePrivKey(e.target.value)} style={{margin:"7px"}}></Input>
+                        <Input type='password' placeholder='Wallet Access' onChange={(e) => updateAddress(e.target.value)} style={{margin:"7px"}}></Input>
+
+                       
+
+                        <Button onClick={createInvestor} shape="round" type="primary" size="large" style={{margin:"7px"}}>Sign Up!</Button>
+                        </Card>
+                    </Space>
+                {/* <input type='text' placeholder='First Name' onChange={(e) => updateFirstName(e.target.value)}></input>
                 <input type='text' placeholder='Last Name' onChange={(e) => updateLastName(e.target.value)}></input>
                 <input type='email' placeholder='Email' onChange={(e) => updateEmail(e.target.value)}></input>
                 <input type='password' placeholder='Password' onChange={(e) => updatePassword(e.target.value)}></input>
                 <input type='password' placeholder='Private Key' onChange={(e) => updatePrivKey(e.target.value)}></input>
                 <input type='password' placeholder='Wallet Address' onChange={(e) => updateAddress(e.target.value)}></input>
-                <button onClick={createInvestor}>Sign Up!</button>
+                <button onClick={createInvestor}>Sign Up!</button> */}
             </div> : (
             
             <div>

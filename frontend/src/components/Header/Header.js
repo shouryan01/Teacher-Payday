@@ -6,7 +6,7 @@ import { SignUpLoginBtns } from '../Buttons/SignUpLogInButtons';
 export default function Header() {
   return (
     <HeaderCont>
-      <div className="app-name">Teacher PayDay</div>
+      <div className="app-name">Ed|xCHANGE</div>
       <Navbar />
       <SignUpLoginBtns />
     </HeaderCont>

@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useAuth0 } from "@auth0/auth0-react";
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Form, Input, Button, Checkbox } from 'antd';
+import { Space, Card, Button, Input } from 'antd';
 
 function LogIn() {
   const navigate = useNavigate();
@@ -46,7 +45,6 @@ function LogIn() {
         alert('Email and password combo do not exists in database.');
         return;
       }
-      else alert('Logged in! Navigating to dashboard.');
       
       localStorage.setItem('type', resJson.type);
       localStorage.setItem('email', email);
@@ -67,45 +65,31 @@ function LogIn() {
 
   return (
   <div>
-    <h1>Login with Auth0</h1>
-    <button onClick={() => loginWithRedirect()}>Log In</button>
-    <h1>Or with Email and Password</h1>
-    <input type="email" onChange={(e) => updateEmail(e.target.value)} />
-    <input type="password" onChange={(e) => updatePassword(e.target.value)} />
-    <button onClick={login}>Login</button>
-    {/* <Form
-      name="basic"
-      labelCol={{ span: 8 }}
-      wrapperCol={{ span: 16 }}
-      initialValues={{ remember: true }}
-      autoComplete="off"
-    >
-      <Form.Item
-        label="Username"
-        name="username"
-        rules={[{ required: true, message: 'Please input your username!' }]}
+    
+    <Space align="center">
+      <Card
+        hoverable
+        style={{
+          width: 400,
+          height: 500,
+          margin: "50px",
+          borderRadius: "20px",
+          overflow: "hidden"
+        }}
       >
-        <Input />
-      </Form.Item>
-
-      <Form.Item
-        label="Password"
-        name="password"
-        rules={[{ required: true, message: 'Please input your password!' }]}
-      >
-        <Input.Password />
-      </Form.Item>
-
-      <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
-        <Checkbox>Remember me</Checkbox>
-      </Form.Item>
-
-      <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-        <Button type="primary" htmlType="submit">
-          Submit
-        </Button>
-      </Form.Item>
-    </Form> */}
+        <h1>Login</h1>
+        {/* <br /><br /><br /><br /><br /><br /><br /><br /> */}
+        <Button onClick={() => loginWithRedirect()} shape="round" type="primary" size="large">Log In With Auth0</Button>
+        <br /><br /><br /><br /><br /><br /><br /><br />
+        <h1>Django Login</h1>
+        <Input type="email" onChange={(e) => updateEmail(e.target.value)} style={{margin:"7px"}}></Input>
+        <Input type="password" onChange={(e) => updatePassword(e.target.value)} style={{margin:"7px"}}></Input>
+        {/* <input type="email" onChange={(e) => updateEmail(e.target.value)} /> */}
+        {/* <input type="password" onChange={(e) => updatePassword(e.target.value)} /> */}
+        <Button onClick={login} shape="round" type="primary" size="large" style={{margin:"7px"}}>Login</Button>
+        </Card>
+      </Space>
+    
   </div>
   );
 }

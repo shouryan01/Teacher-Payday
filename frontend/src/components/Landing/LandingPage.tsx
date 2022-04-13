@@ -13,7 +13,7 @@ function LandingPage() {
           <div className="call-to-action">
             Make your investments today!
             <br />
-            Teacher Payday is a revolutionary new platform empowering teachers to support both themselves and their deserving students!
+            Ed|xCHANGE is a revolutionary  platform empowering teachers to support themselves & their deserving students!
           </div>
         </MainContent>
       </MainContentCont>

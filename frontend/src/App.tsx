@@ -5,6 +5,7 @@ import './App.css';
 // Components
 import LandingPage from './components/Landing/LandingPage';
 import LogIn from './components/LogIn';
+import LogInPage from './components/LogInSignUp/Login';
 import LogOut from './components/LogOut';
 import SignUp from './components/SignUp';
 import Dashboard from './components/Dashboard';

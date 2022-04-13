@@ -1,6 +1,8 @@
 import React from 'react';
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import { Space, Card, Button, Input } from 'antd';
+const { TextArea } = Input;
 
 function StudentSignUp() {
     const [firstName, updateFirstName] = useState('');
@@ -80,14 +82,39 @@ function StudentSignUp() {
     return (
         <div className="App">
             {!signedUp ? <div>
-                <input type='text' placeholder='First Name' onChange={(e) => updateFirstName(e.target.value)}></input>
-                <input type='text' placeholder='Last Name' onChange={(e) => updateLastName(e.target.value)}></input>
-                <input type='email' placeholder='Email' onChange={(e) => updateEmail(e.target.value)}></input>
-                <input type='password' placeholder='Password' onChange={(e) => updatePassword(e.target.value)}></input>
-                <textarea onChange={(e) => updateDescription(e.target.value)}></textarea>
-                <input type='password' placeholder='Private Key' onChange={(e) => updatePrivKey(e.target.value)}></input>
-                <input type='password' placeholder='Wallet Address' onChange={(e) => updateAddress(e.target.value)}></input>
-                <button onClick={createStudent}>Sign Up!</button>
+                <Space align="center">
+                    <Card
+                        hoverable
+                        style={{
+                        width: 400,
+                        height: 650,
+                        margin: "50px",
+                        borderRadius: "20px",
+                        overflow: "hidden"
+                        }}
+                    >   
+                        <h1>Student Sign Up</h1>
+                        <Input type='text' placeholder='First Name' onChange={(e) => updateFirstName(e.target.value)} style={{margin:"7px"}}></Input>
+                        <Input type='text' placeholder='Last Name' onChange={(e) => updateLastName(e.target.value)} style={{margin:"7px"}}></Input>
+                        <Input type='email' placeholder='Email' onChange={(e) => updateEmail(e.target.value)} style={{margin:"7px"}}></Input>
+                        <Input type='password' placeholder='Password' onChange={(e) => updatePassword(e.target.value)} style={{margin:"7px"}}></Input>
+
+                        <Input type='password' placeholder='Private Key' onChange={(e) => updatePrivKey(e.target.value)} style={{margin:"7px"}}></Input>
+                        <Input type='password' placeholder='Wallet Access' onChange={(e) => updateAddress(e.target.value)} style={{margin:"7px"}}></Input>
+
+                        <TextArea rows={4} placeholder="Add a description!" maxLength={6} onChange={(e) => updateDescription(e.target.value)} style={{margin:"7px"}} />
+
+                        {/* <input type='text' placeholder='Last Name' onChange={(e) => updateLastName(e.target.value)}></input>
+                        <input type='email' placeholder='Email' onChange={(e) => updateEmail(e.target.value)}></input> */}
+                        {/* <input type='password' placeholder='Password' onChange={(e) => updatePassword(e.target.value)}></input> */}
+                        {/* <textarea onChange={(e) => updateDescription(e.target.value)}></textarea> */}
+                        {/* <input type='password' placeholder='Private Key' onChange={(e) => updatePrivKey(e.target.value)}></input>
+                        <input type='password' placeholder='Wallet Address' onChange={(e) => updateAddress(e.target.value)}></input> */}
+
+                        <Button onClick={createStudent} shape="round" type="primary" size="large" style={{margin:"7px"}}>Sign Up!</Button>
+                        </Card>
+                    </Space>
+                
             </div> : (
             
             <div>

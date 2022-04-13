@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { Button, Menu, Dropdown, Input } from 'antd';
+import { Button, Menu, Input, Card } from 'antd';
+
 import { WalletOutlined } from '@ant-design/icons';
-import { Card, Col, Row } from 'antd';
 const { Meta } = Card;
 
 function Student(props: any){
